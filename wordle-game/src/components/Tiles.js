@@ -4,7 +4,7 @@ import { useGlobalContext } from "../context";
 
 const Letter = ({row, tile}) => {
 
-  const { board, currAttempt, correctWord } = useGlobalContext();
+  const { board, currAttempt, correctWord, gameOver } = useGlobalContext();
 
   const letter = board[row][tile];
   const correct = correctWord.toUpperCase()[tile] === letter;
@@ -16,7 +16,7 @@ const Letter = ({row, tile}) => {
 
   return (
     <div className="letter" id={state}>
-      {letter}
+      {!gameOver.over && letter}
     </div>
   );
 };

@@ -16,11 +16,9 @@ const AppProvider = ({ children }) => {
         ["", "", "", "", ""],
     ]);
 
-    const [wordsSet, setWordsSet] = useState(new Set(['right','rrigh','rirgh','table','great', 'ggggg'])); // list of all the valid words
-
     const [currAttempt, setCurrAttempt] = useState({ row: 0, tile: 0 }); // to check row (0,1,2,3,4) and column (0,1,2,3,4) on board
     
-    const [correctWord, setCorrectWord] = useState("rrigh");
+    const [correctWord, setCorrectWord] = useState("");
 
     const [lettersColor, setLettersColor] = useState({
         disabled: [],
@@ -35,37 +33,67 @@ const AppProvider = ({ children }) => {
 
     useEffect(()=>{
 
-        // const loadWord = async () => {
-        //     try{
-        //         const options = {
-        //             method: 'GET',
-        //             url: 'https://random-words5.p.rapidapi.com/getMultipleRandom',
-        //             params: {count: '5', wordLength: '5'},
-        //             headers: {
-        //                 'x-rapidapi-host': 'random-words5.p.rapidapi.com',
-        //                 'x-rapidapi-key': "93726b2339mshbac1a2529db7422p1bc8e0jsn14ab932e07da"
-        //             }
-        //         }
-        //         const response = await axios.request(options);
+        const loadWord = async () => {
+            try{
+                const options = {
+                    method: 'GET',
+                    url: 'https://random-words5.p.rapidapi.com/getMultipleRandom',
+                    params: {count: '5', wordLength: '5'},
+                    headers: {
+                        'x-rapidapi-host': 'random-words5.p.rapidapi.com',
+                        'x-rapidapi-key': "93726b2339mshbac1a2529db7422p1bc8e0jsn14ab932e07da"
+                    }
+                }
+                const response = await axios.request(options);
                 
-        //         setCorrectWord(response.data[0])
-        //         setLoading(false);
+                setCorrectWord(response.data[0])
+                setLoading(false);
 
-        //         console.log(response.data[0])
+                console.log(response.data[0])
                 
-        //     }catch(error){
-        //         console.error(error);
-        //     }
+            }catch(error){
+                console.error(error);
+            }
             
-        // };
+        };
 
-        setCorrectWord("right");
-        setLoading(false);
+        // setCorrectWord("thing");
+        // setLoading(false);
 
     }, []);
 
+    const [wordsSet, setWordsSet] = useState(new Set(['right','words','guess','silly','phone','thing'])); // list of all the valid words
+
     const checkWord = async (word) => {
-        return wordsSet.has(word.toLowerCase())
+        // return wordsSet.has(word.toLowerCase())
+
+        try{
+            const options = {
+                method: 'GET',
+                url: 'https://twinword-word-graph-dictionary.p.rapidapi.com/association/',
+                params: {entry: word},
+                headers: {
+                    'x-rapidapi-host': 'twinword-word-graph-dictionary.p.rapidapi.com',
+                    'x-rapidapi-key': "93726b2339mshbac1a2529db7422p1bc8e0jsn14ab932e07da"
+                }
+            }
+            const response = await axios.request(options);
+            
+            // setCorrectWord(response.data.result_msg)
+
+            console.log(response.data.result_msg)
+
+            if(response.data.result_msg === "Entry word not found"){
+                return false;
+            }
+
+            return true;
+            
+        }catch(error){
+            console.error(error);
+            return false;
+        }
+            
     };
 
     const checkRow = async () => {

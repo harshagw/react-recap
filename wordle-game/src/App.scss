@@ -1,6 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 
+
+body{
+  background-color: rgb(22,25,32);
+}
+
+*{
+  font-weight: bold;
+  color:white;
+}
+
 .app{
   font-family: 'Noto Sans', sans-serif;
   
@@ -27,7 +37,8 @@
           place-items: center;
           height: 100%;
           width:40px;
-          border:1px solid black;
+          // border:1px solid black;
+          background-color: #4c4c4d;
           border-radius: 5px;
           margin:0 5px;
           text-align: center;
@@ -39,7 +50,7 @@
       }
 
       #disabled {
-        background-color: #3a393c;
+        background-color: rgb(57,79,102);
       }
 
       #green{
@@ -51,7 +62,7 @@
       }
     }
 
-      .keyboard {
+    .keyboard {
         margin-top:50px;
   
         .row {
@@ -67,9 +78,10 @@
           place-items: center;
           width: 40px;
           height: 100%;
+          background-color: #4c4c4d;
           margin: 0 2px;
           border-radius: 5px;
-          border:1px solid black;
+          // border:1px solid black;
           cursor: pointer;
 
           &#big{
@@ -83,7 +95,7 @@
         }
 
         #disabled {
-          background-color: #3a393c;
+          background-color: rgb(57,79,102);
         }
 
         #green{
@@ -94,6 +106,10 @@
           background-color: #b49f39;
         }
 
+      }
+
+      .gameOver{
+        
       }
   }
   
