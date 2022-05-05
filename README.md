@@ -4,5 +4,5 @@ It has different projects which I made to revise the reactjs topics. I saw some 
 
 ## Project 1 - Wordle Game
 
-Worlde is interesting and popular game where you have to guess the word of the day. 
+Wordle is interesting and popular game where you have to guess the word of the day. 
 I learnt about the fundamentals of ReactJS and the key part was ReactJs Context API. 
