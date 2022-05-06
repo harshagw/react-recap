@@ -1,13 +1,13 @@
 # dependencies
-wordle-game/node_modules
-wordle-game/.pnp
+*/node_modules
+*/.pnp
 .pnp.js
 
 # testing
-wordle-game/coverage
+*/coverage
 
 # production
-wordle-game/build
+*/build
 
 # misc
 .DS_Store

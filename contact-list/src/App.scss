@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+
+body{
+  background-color: #282c34;
+  overflow: hidden;
+}
+
+*{
+  font-family: 'Noto Sans', sans-serif;
+  box-sizing: border-box;
+  margin:0;
+}
+
+
+.app{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // color: #61dafb;
+
+   > .header{
+    margin:20px 0;
+    color:#4a5161;
+    font-weight: bold;
+  }
+
+  .main{
+    border-radius: 15px;
+    background-color: white;
+    width:40vw;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80vh;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .header{
+      padding:20px 40px;
+
+      .heading{
+          font-weight: 600;
+      }
+    }
+
+    .body{
+      padding:10px 40px 10px;
+      flex:1;
+      overflow-y: scroll;
+
+      .contacts-header{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding:10px 0;
+
+          .add-button{
+            cursor: pointer;
+            font-size: 24px;
+          }
+
+      }
+
+      .contacts{
+
+        .contact{
+          padding:20px 0;
+          display: flex;
+          align-items: center;
+
+          img{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-right:10px;
+          }
+
+          .contact-name{
+              color:#5A5B60;
+              cursor:pointer;
+          }
+        }
+      }  
+      
+      
+    .contact-form{
+    
+      .input-div{
+        margin:20px 0;
+
+        label{
+            font-size: 14px;
+        }
+
+        input{
+          margin-top:5px;
+          display: block;
+          width:100%;
+          padding:10px 8px;
+          border:0;
+          background-color: #efefef;
+          outline:none;
+        }
+      }
+
+    }
+  
+    }
+
+    .footer{
+      
+        padding:20px 40px;
+        display: flex;
+        justify-content: space-between;
+        border-top:1px solid #4a5161;
+
+        .left-button{
+            display: flex;
+            align-items: center;
+
+            .left-icon{
+              margin-top:9px;
+              margin-right: 5px;
+            }
+
+            p{
+            
+            }
+        }
+
+        .action-button{
+          width:50px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: #4a5161;
+          color:white;
+
+          .action-icon{
+            margin-top:4px;
+            color:white;
+          }
+        }
+    }
+
+  }
+}
